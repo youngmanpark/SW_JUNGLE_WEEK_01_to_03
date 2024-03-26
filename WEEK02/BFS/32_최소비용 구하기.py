@@ -15,7 +15,7 @@ start, end = map(int, input().split())
 distance = [float('inf')] * (n + 1)
 visited = [False] * (n + 1)
 
-def bfs(start, end):
+def bfs(start):
     q = deque([start])
     distance[start] = 0
     visited[start] = True
@@ -29,5 +29,5 @@ def bfs(start, end):
                     visited[next_node] = True
                     q.append(next_node)
 
-bfs(start, end)
+bfs(start)
 print(distance[end])
