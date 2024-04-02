@@ -15,8 +15,8 @@ for weight in weights:
     for i in range(len(tmp)):
         tmp.append(abs(tmp[i]-weight))
         tmp.append(tmp[i]+weight)
-    tmp=set(tmp)
-    tmp=list(tmp)
+    tmp=set(tmp) #중복제거
+    tmp=list(tmp) #인덱싱을 위한 리스트
 
 for i in tmp:
     dp[i]=1
