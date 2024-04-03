@@ -13,14 +13,13 @@ def dfs(level, start):
             for i in sorted(path):
                 print(i)
             exit()
-        else :
+        else:
             return
-
 
     for i in range(start, 9):
         path[level] = arr[i]
         dfs(level + 1, i + 1)
-        path[level]=0
+        path[level] = 0
 
 
 dfs(0, 0)

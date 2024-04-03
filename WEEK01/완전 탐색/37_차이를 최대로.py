@@ -17,11 +17,10 @@ def get_abs_sum(arr):
 
 def dfs(depth):
     if depth == n:
-
         abs_sum_case.append(get_abs_sum(new_arr))
         return
 
-    for i in range( n):
+    for i in range(n):
         if visited[i] == 1 : continue
         new_arr[depth] = arr[i]
         visited[i] = 1

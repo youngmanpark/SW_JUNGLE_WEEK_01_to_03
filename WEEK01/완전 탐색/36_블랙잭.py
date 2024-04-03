@@ -8,12 +8,10 @@ arr = list(map(int, input().split()))
 path = [0] * n
 all_case = []
 
-
 def dfs(depth, start):
     if depth == 3:
         if m >= sum(path):
             all_case.append(sum(path))
-
         return
 
     else:
@@ -21,7 +19,6 @@ def dfs(depth, start):
             path[depth] = arr[i]
             dfs(depth + 1, i + 1)
             path[depth] = 0
-
 
 dfs(0, 0)
 
