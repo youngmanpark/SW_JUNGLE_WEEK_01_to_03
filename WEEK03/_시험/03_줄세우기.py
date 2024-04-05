@@ -1,4 +1,16 @@
 # 2631
+import sys
+input=sys.stdin.readline
+n=int(input())
+arr=[0]
+for i in range(n):
+    arr.append(int(input()))
 
+dp=[1]*(n+1)
 
-#ㅈㅈ 한시간동안 풀었는데 접근도 못했음 어떻게 이게 정답 비율이 65프로지 접근을 잘못했나
+for i in range(n+1):
+    for j in range(1,i):
+        if arr[j]<arr[i]:
+            dp[i]=max(dp[i],dp[j]+1)
+
+print(n-max(dp))

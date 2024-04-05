@@ -1,18 +1,26 @@
 # 1202
 
 import sys
+import heapq
 input=sys.stdin.readline
 
 n,k=map(int,input().split())
 bosuck=[]
 for i in range(n):
-    m,v=map(int,input().split())
-    bosuck.append([m,v])
+    heapq.heappush(bosuck,list(map(int,input().split())))
 
-bosuck.sort(key=lambda x:(x[1],x[0]))
-
-sack_c=[]
+bags=[]
 for i in range(k):
-    sack_c.append(int(input()))
+    bags.append(int(input()))
+bags.sort()
 
-# ㅈㅈ 5분남아서 포기
+answer=0
+tmp=[]
+for bag in bags:
+    while bosuck and bag>=bosuck[0][0]:
+        heapq.heappush(tmp,-heapq.heappop(bosuck)[1])
+    if tmp:
+        answer-=heapq.heappop(tmp)
+    elif not bosuck:
+        break
+print(answer)
